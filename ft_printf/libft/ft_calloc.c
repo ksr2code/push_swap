@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 14:34:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/10/27 14:35:37 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/06/18 15:21:14 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/06/18 15:24:23 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "ft_printf/ft_printf.h;"
+#include "libft.h"
 
-typedef struct s_stack
+void	*ft_calloc(size_t count, size_t size)
 {
-	int				value;
-	int				index;
-	struct s_stack	*next;
-}				t_stack;
+	void	*ptr;
 
-#endif // !PUSH_SWAP_H
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, count * size);
+	return (ptr);
+}

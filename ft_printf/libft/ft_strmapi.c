@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 14:34:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/10/27 14:35:37 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/09/07 16:36:22 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/09/07 16:49:16 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "ft_printf/ft_printf.h;"
+#include "libft.h"
 
-typedef struct s_stack
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int				value;
-	int				index;
-	struct s_stack	*next;
-}				t_stack;
+	char			*res;
+	unsigned int	i;
 
-#endif // !PUSH_SWAP_H
+	if (!s || !f)
+		return (NULL);
+	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!res)
+		return (NULL);
+	i = -1;
+	while (s[++i])
+		res[i] = f(i, s[i]);
+	res[i] = '\0';
+	return (res);
+}
