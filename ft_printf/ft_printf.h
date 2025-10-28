@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/16 13:41:13 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/09/21 11:16:17 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/09 15:43:21 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/10 10:50:49 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,4 @@ char	*ft_itoa_hex(unsigned long nb, char *base);
 int		ft_print_uint(unsigned int n, t_flags flags);
 int		ft_print_ptr(void *ptr, t_flags flags);
 
-#endif
+#endif // !FT_PRINTF_H

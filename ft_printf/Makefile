@@ -3,15 +3,15 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-SRCS = ft_flag_utils.c\
+SRCS = ft_printf.c\
+	   ft_flag_utils.c\
 	   ft_parse_utils.c\
 	   ft_print_char.c\
 	   ft_print_hex.c\
 	   ft_print_int.c\
 	   ft_print_ptr.c\
 	   ft_print_str.c\
-	   ft_print_uint.c\
-	   ft_printf.c
+	   ft_print_uint.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -23,7 +23,7 @@ all: $(NAME)
 bonus: all
 
 $(NAME): $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)	
 	cp $(LIBFT) $(NAME)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
@@ -31,14 +31,14 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
+clean: 
 	rm -f $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(LIBFT_DIR)	clean
 
 fclean: clean
 	rm -f $(NAME)
 	rm -f $(LIBFT)
 
 re: fclean all
-
-.PHONY: all clean fclean re bonus
+	
+.PHONY: all bonus clean fclean re

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 00:05:41 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/09/21 00:40:35 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/10 10:22:03 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/10 10:51:01 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,31 @@ static char	*ft_apply_hash(char *hex_str, unsigned int n, int is_upper,
 	return (hex_str);
 }
 
+static int	ft_print_hex_zero(char *nb_str, t_flags flags)
+{
+	int	count;
+
+	count = 0;
+	if (flags.hash && nb_str[1] == 'x')
+	{
+		count += ft_print_numstr("0x");
+		count += ft_pad_width(flags.width, ft_strlen(nb_str), 1);
+		count += ft_print_numstr(nb_str + 2);
+	}
+	else if (flags.hash && nb_str[1] == 'X')
+	{
+		count += ft_print_numstr("0X");
+		count += ft_pad_width(flags.width, ft_strlen(nb_str), 1);
+		count += ft_print_numstr(nb_str + 2);
+	}
+	else
+	{
+		count += ft_pad_width(flags.width, ft_strlen(nb_str), 1);
+		count += ft_print_numstr(nb_str);
+	}
+	return (count);
+}
+
 static int	ft_print_hexstr(char *hex_str, t_flags flags)
 {
 	int	count;
@@ -63,7 +88,7 @@ static int	ft_print_hexstr(char *hex_str, t_flags flags)
 		count += ft_print_numstr(hex_str) + ft_pad_width(flags.width,
 				ft_strlen(hex_str), 0);
 	else if (flags.zero && flags.precision < 0)
-		count += ft_print_with_zero(hex_str, flags);
+		count += ft_print_hex_zero(hex_str, flags);
 	else
 		count += ft_pad_width(flags.width, ft_strlen(hex_str), 0)
 			+ ft_print_numstr(hex_str);

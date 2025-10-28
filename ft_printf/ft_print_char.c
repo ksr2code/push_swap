@@ -5,12 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 00:12:16 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/09/21 00:15:39 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/09 19:57:21 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/09 20:25:53 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_print_c(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
 
 int	ft_pad_width(int width, int size, int zero)
 {
@@ -26,12 +32,6 @@ int	ft_pad_width(int width, int size, int zero)
 		width--;
 	}
 	return (count);
-}
-
-int	ft_print_c(char c)
-{
-	write(1, &c, 1);
-	return (1);
 }
 
 int	ft_print_char(char c, t_flags flags)

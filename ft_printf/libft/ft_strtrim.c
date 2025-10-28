@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/05 16:09:40 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/09/05 16:26:18 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/08 18:06:02 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/08 18:08:05 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		len--;
 	return (ft_substr(s1, start, len - start));
 }
-
-// #include <stdio.h>
-// int	main()
-// {
-// 		char	*str;
-// 		char s1[] = "abc_Hello_cb";
-// 		if (!(str = ft_strtrim(s1, "abc_")))
-// 			printf("Error");
-// 		else
-// 			printf("%s\n", str);
-// }

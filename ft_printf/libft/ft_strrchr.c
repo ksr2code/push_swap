@@ -5,16 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/15 15:02:12 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/06/15 15:12:22 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/08 16:55:26 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/08 17:01:59 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*last;
 
-	last = 0;
+	last = NULL;
 	while (*s)
 	{
 		if (*s == (char)c)

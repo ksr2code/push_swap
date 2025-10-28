@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 00:41:37 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/09/21 00:41:39 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/13 18:40:19 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/13 18:47:49 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static char	*ft_utoa_printf(unsigned int n)
 	char	buf[20];
 	char	*res;
 	int		i;
-	int		j;
 
 	if (n == 0)
 		return (ft_strdup("0"));
@@ -30,10 +29,9 @@ static char	*ft_utoa_printf(unsigned int n)
 	res = malloc(sizeof(char) * (i + 2));
 	if (!res)
 		return (NULL);
-	j = 0;
 	while (i >= 0)
-		res[j++] = buf[i--];
-	res[j] = '\0';
+		res[n++] = buf[i--];
+	res[n] = '\0';
 	return (res);
 }
 

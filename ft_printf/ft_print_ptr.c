@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/20 23:58:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/09/21 00:43:35 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/14 10:26:43 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/14 10:26:45 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_print_ptr(void *ptr, t_flags flags)
 	if (addr == 0 && flags.precision == 0)
 		ptr_str = ft_strdup("0x");
 	else if (addr == 0)
-		ptr_str = ft_strdup("0x0");
+		ptr_str = ft_strdup("(nil)");
 	else
 	{
 		ptr_str = ft_itoa_hex(addr, "0123456789abcdef");

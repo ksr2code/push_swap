@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/13 23:15:56 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/06/15 16:06:15 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/08 10:28:46 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/08 10:28:47 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t	i;
 
+	if (!dst && !src)
+		return (NULL);
 	i = -1;
 	while (++i < n)
 		((char *)dst)[i] = ((char *)src)[i];

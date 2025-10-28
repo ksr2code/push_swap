@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/10 21:11:20 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/09/10 21:25:54 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/08 20:17:36 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/08 20:20:47 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
 	t_list	*tmp;
+	void	*ptr;
 
 	if (!lst || !f || !del)
 		return (NULL);
-	new = ft_lstnew(f(lst->content));
+	ptr = f(lst->content);
+	new = ft_lstnew(ptr);
 	if (!new)
-		return (NULL);
+		return (del(ptr), NULL);
 	tmp = new;
 	lst = lst->next;
 	while (lst)
 	{
-		tmp->next = ft_lstnew(f(lst->content));
+		ptr = f(lst->content);
+		tmp->next = ft_lstnew(ptr);
 		if (!tmp->next)
-		{
-			ft_lstclear(&new, del);
-			return (NULL);
-		}
+			return (ft_lstclear(&new, del), del(ptr), NULL);
 		tmp = tmp->next;
 		lst = lst->next;
 	}

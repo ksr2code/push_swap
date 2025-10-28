@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 00:00:13 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/09/21 11:17:11 by ksmailov         ###   ########.fr       */
+/*   Created: 2025/10/09 20:28:57 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/09 21:21:38 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ static int	ft_print_arg(char type, va_list *args, t_flags flags)
 	return (count);
 }
 
+static int	ft_return_spec(const char *str, int i, t_flags *flags)
+{
+	if (str[i] == '%')
+		flags->width = 0;
+	flags->spec = str[i];
+	return (i);
+}
+
 static int	ft_parse_flags(const char *str, int i, va_list *args,
 		t_flags *flags)
 {
@@ -58,10 +66,7 @@ static int	ft_parse_flags(const char *str, int i, va_list *args,
 		if (ft_isdigit(str[i]))
 			*flags = ft_flags_digit(str[i], *flags);
 		if (ft_istype(str[i]))
-		{
-			flags->spec = str[i];
-			return (i);
-		}
+			return (ft_return_spec(str, i, flags));
 	}
 	return (i);
 }
