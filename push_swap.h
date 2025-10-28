@@ -14,7 +14,8 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
-# include "ft_printf/ft_printf.h;"
+# include "./libft/libft.h"
+# include "./ft_printf/ft_printf.h"
 
 typedef struct s_stack
 {
@@ -23,4 +24,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-#endif // !PUSH_SWAP_H
+int	check_arg(char **av);
+
+#endif

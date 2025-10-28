@@ -1,3 +1,5 @@
+#include "push_swap.h"
+
 int is_number(char *av)
 {
 	int i;
