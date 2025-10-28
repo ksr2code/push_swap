@@ -24,6 +24,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-int	check_arg(char **av);
+int	check_arg(char **av, int flag);
 
 #endif
