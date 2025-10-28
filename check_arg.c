@@ -5,6 +5,11 @@ int is_number(char *av)
 	i = 0;
 	while ((av[i] == '-' || av[i] == '+') && av[i + 1] != '\0')
 		i++;
+    while (av[i] && is_digit(av[i]))
+        i++;
+    if (av[i] != '\0')
+        return (0);
+    return (1);
 }
 
 int have_duplicates(char **av)
