@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include "./libft/libft.h"
 # include "./ft_printf/ft_printf.h"
+#include <limits.h>
 
 typedef struct s_stack
 {
@@ -25,5 +26,6 @@ typedef struct s_stack
 }				t_stack;
 
 int	check_arg(char **av, int flag);
+t_stack *get_stack_values(int ac,char **av, int flag);
 
 #endif
