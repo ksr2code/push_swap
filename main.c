@@ -36,12 +36,13 @@ int	main(int ac, char **av)
 		return (0);
 	flag = check_flags(av[1]);
 	if(check_arg(av, flag))
-		return (exit_error(NULL, NULL));
+		exit_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = get_stack_values(ac, av, flag);
-	s_size = get_stack_size(stack_a);
+	s_size = ft_lstsize(stack_a);
 	set_index(stack_a, s_size);
 	push_swap(&stack_a, &stack_b, stack_size, flag);
-	free_stack(&stack_a, stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }

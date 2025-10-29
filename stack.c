@@ -22,13 +22,54 @@ long	ft_atol(const char *str)
 	}
 	return (res * neg);
 }
+t_stack	*stack_new(int nb)
+{
+	t_stack	*new;
+
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->value = nb;
+	new->index = 0;
+	new->next = NULL;
+	return (new);
+}
+
+void	set_index(t_stack *stack_a, int s_size)
+{
+	t_stack	*ptr;
+	t_stack	*highest;
+	int		value;
+
+	while (--s_size > 0)
+	{
+		ptr = stack_a;
+		value = INT_MIN;
+		highest = NULL;
+		while (ptr)
+		{
+			if (ptr->value == INT_MIN && ptr->index == 0)
+				ptr->index = 1;
+			if (ptr->value > value && ptr->index == 0)
+			{
+				value = ptr->value;
+				highest = ptr;
+				ptr = stack_a;
+			}
+			else
+				ptr = ptr->next;
+		}
+		if (highest != NULL)
+			highest->index = s_size;
+	}
+}
 
 t_stack	*get_stack_values(int ac, char **av, int flag)
 {
 	int		i;
 	long	nb;
-	t_stack *stack_a;
-	
+	t_stack	*stack_a;
+
 	i = 1;
 	if (flag)
 		i++;
@@ -36,8 +77,10 @@ t_stack	*get_stack_values(int ac, char **av, int flag)
 	{
 		nb = ft_atol(av[i]);
 		if (nb > INT_MAX && nb < INT_MIN)
-			return (exit_error(stack_a, NULL), NULL);
-		if(!stack_a)
+			exit_error(&stack_a, NULL);
+		if (!stack_a)
 			stack_a = stack_new((int)nb);
+		else
+			ft_lstadd_back(&stack_a, stack_new((int)nb));
 	}
 }
