@@ -10,18 +10,18 @@ static int	highest_bit(int n)
 	return (bits);
 }
 
-void	radix_sort(t_stack **stack_a, t_stack **stack_b, int len)
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size)
 {
 	int	max_bits;
 	int	i;
 	int	j;
 
-	max_bits = highest_bit(len - 1);
+	max_bits = highest_bit(s_size - 1);
 	i = 0;
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j < len)
+		while (j < s_size)
 		{
 			if ( ((*stack_a)->index >> i) & 1 )
 				do_ra(stack_a);

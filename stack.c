@@ -22,6 +22,7 @@ long	ft_atol(const char *str)
 	}
 	return (res * neg);
 }
+
 t_stack	*stack_new(int nb)
 {
 	t_stack	*new;
@@ -64,7 +65,7 @@ void	set_index(t_stack *stack_a, int s_size)
 	}
 }
 
-t_stack	*get_stack_values(int ac, char **av, int flag)
+t_stack	*get_stack_values(char **av, int flag)
 {
 	int		i;
 	long	nb;
@@ -73,6 +74,7 @@ t_stack	*get_stack_values(int ac, char **av, int flag)
 	i = 1;
 	if (flag)
 		i++;
+	stack_a = NULL;
 	while (av[i])
 	{
 		nb = ft_atol(av[i]);
@@ -81,6 +83,8 @@ t_stack	*get_stack_values(int ac, char **av, int flag)
 		if (!stack_a)
 			stack_a = stack_new((int)nb);
 		else
-			ft_lstadd_back(&stack_a, stack_new((int)nb));
+			ft_stackadd_back(&stack_a, stack_new((int)nb));
+		i++;
 	}
+	return (stack_a);
 }

@@ -12,17 +12,35 @@
 
 #include "push_swap.h"
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 == *s2 && *s1)
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
+}
+
 static int	check_flags(char *av)
 {
-	if (ft_strncmp(av, "--simple", 9) == 0)
+	if (ft_strcmp(av, "--simple") == 0)
 		return (1);
-	else if (ft_strncmp(av, "--medium", 9) == 0)
+	else if (ft_strcmp(av, "--medium") == 0)
 		return (2);
-	else if (ft_strncmp(av, "--complex", 10) == 0)
+	else if (ft_strcmp(av, "--complex") == 0)
 		return (3);
-	else if (ft_strncmp(av, "--adaptive", 11) == 0)
+	else if (ft_strcmp(av, "--adaptive") == 0)
 		return (4);
 	return (0);
+}
+
+void push_swap(t_stack **stack_a, t_stack **stack_b, int s_size, int flag)
+{
+	(void)flag;
+	if (is_sorted(*stack_a))
+		exit_error(NULL, NULL);
+	radix_sort(stack_a, stack_b, s_size);
 }
 
 int	main(int ac, char **av)
@@ -38,10 +56,10 @@ int	main(int ac, char **av)
 	if(check_arg(av, flag))
 		exit_error(NULL, NULL);
 	stack_b = NULL;
-	stack_a = get_stack_values(ac, av, flag);
-	s_size = ft_lstsize(stack_a);
+	stack_a = get_stack_values(av, flag);
+	s_size = ft_stack_size(stack_a);
 	set_index(stack_a, s_size);
-	push_swap(&stack_a, &stack_b, stack_size, flag);
+	push_swap(&stack_a, &stack_b, s_size, flag);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
