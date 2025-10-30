@@ -41,7 +41,7 @@ int	have_duplicates(char **av, int flag)
 		j = i + 1;
 		while (av[j])
 		{
-			if (nb_strcmp(av[i], av[j]) == 0)
+			if (ft_atol(av[i]) == ft_atol(av[j]))
 				return (1);
 			j++;
 		}

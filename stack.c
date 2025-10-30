@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/30 20:50:04 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/10/30 20:50:05 by ksmailov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 long	ft_atol(const char *str)
@@ -78,7 +90,7 @@ t_stack	*get_stack_values(char **av, int flag)
 	while (av[i])
 	{
 		nb = ft_atol(av[i]);
-		if (nb > INT_MAX && nb < INT_MIN)
+		if (nb > INT_MAX || nb < INT_MIN)
 			exit_error(&stack_a, NULL);
 		if (!stack_a)
 			stack_a = stack_new((int)nb);
