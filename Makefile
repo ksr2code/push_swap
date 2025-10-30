@@ -5,8 +5,10 @@ NAME = push_swap
 
 SRCS = main.c\
 	   check_arg.c\
-	   push.c\
-	   rotate.c\
+	   op_push.c\
+	   op_rev_rotate.c\
+	   op_rotate.c\
+	   op_swap.c\
 	   sort.c\
 	   stack.c\
 	   stack_utils.c\

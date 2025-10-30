@@ -3,16 +3,17 @@
 static void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
-	t_stack	*tail;
-
+	t_stack	*last;
 
 	if (*stack == NULL || (*stack)->next == NULL)
-		return;
+		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
-	tail = ft_stacklast(*stack);
+	last = *stack;
+	while (last->next)
+		last = last->next;
 	tmp->next = NULL;
-	tail->next = tmp;
+	last->next = tmp;
 }
 
 void	do_ra(t_stack **stack_a)

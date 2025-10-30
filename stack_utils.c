@@ -13,7 +13,7 @@ int	ft_stack_size(t_stack *stack)
 	return (i);
 }
 
-t_stack	*ft_stacklast(t_stack *stack)
+static t_stack	*ft_stacklast(t_stack *stack)
 {
 	while (stack && stack->next)
 		stack = stack->next;

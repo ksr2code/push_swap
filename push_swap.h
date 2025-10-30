@@ -35,14 +35,18 @@ long	ft_atol(const char *str);
 
 int		ft_stack_size(t_stack *stack);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
-t_stack	*ft_stacklast(t_stack *stack);
 
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
 
+void	do_sa(t_stack **stack_a);
+void	do_sb(t_stack **stack_b);
 void	do_pa(t_stack **stack_a, t_stack **stack_b);
 void	do_pb(t_stack **stack_a, t_stack **stack_b);
 void	do_ra(t_stack **stack_a);
 void	do_rb(t_stack **stack_b);
 void	do_rr(t_stack **stack_a, t_stack **stack_b);
+void	do_rra(t_stack **stack_a);
+void	do_rrb(t_stack **stack_b);
+void	do_rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

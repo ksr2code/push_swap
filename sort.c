@@ -23,7 +23,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size)
 		j = 0;
 		while (j < s_size)
 		{
-			if ( ((*stack_a)->index >> i) & 1 )
+			if (((*stack_a)->index >> i) & 1)
 				do_ra(stack_a);
 			else
 				do_pb(stack_a, stack_b);

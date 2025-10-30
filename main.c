@@ -35,7 +35,7 @@ static int	check_flags(char *av)
 	return (0);
 }
 
-void push_swap(t_stack **stack_a, t_stack **stack_b, int s_size, int flag)
+void	push_swap(t_stack **stack_a, t_stack **stack_b, int s_size, int flag)
 {
 	(void)flag;
 	if (is_sorted(*stack_a))
@@ -53,7 +53,7 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	flag = check_flags(av[1]);
-	if(check_arg(av, flag))
+	if (check_arg(av, flag))
 		exit_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = get_stack_values(av, flag);
