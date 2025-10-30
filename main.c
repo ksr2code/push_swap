@@ -53,7 +53,7 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	flag = check_flags(av[1]);
-	if (check_arg(av, flag))
+	if (!valid_input(av, flag))
 		exit_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = get_stack_values(av, flag);

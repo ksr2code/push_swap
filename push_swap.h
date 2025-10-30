@@ -25,7 +25,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-int		check_arg(char **av, int flag);
+int		valid_input(char **av, int flag);
 t_stack	*get_stack_values(char **av, int flag);
 void	set_index(t_stack *stack_a, int s_size);
 void	exit_error(t_stack **stack_a, t_stack **stack_b);

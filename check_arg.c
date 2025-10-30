@@ -5,27 +5,13 @@ int	is_number(char *av)
 	int	i;
 
 	i = 0;
-	while ((av[i] == '-' || av[i] == '+') && av[i + 1] != '\0')
+	if ((av[i] == '-' || av[i] == '+') && av[i + 1] != '\0')
 		i++;
 	while (av[i] && ft_isdigit(av[i]))
 		i++;
 	if (av[i] != '\0')
 		return (0);
 	return (1);
-}
-
-int	nb_strcmp(char *s1, char *s2)
-{
-	if (*s1 == '+')
-		s1++;
-	if (*s2 == '+')
-		s2++;
-	while (*s1 == *s2 && *s1)
-	{
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
 }
 
 int	have_duplicates(char **av, int flag)
@@ -50,7 +36,28 @@ int	have_duplicates(char **av, int flag)
 	return (0);
 }
 
-int	check_arg(char **av, int flag)
+int valid_len(char *str)
+{
+	int len;
+	int zeros;
+
+	len = 0;
+	zeros =0;
+	if (str[len] == '-' || str[len] == '+')
+		len++;
+	while (str[len] && str[len] == '0')
+	{
+		zeros++;
+		len++;
+	}
+	while (str[len] && ft_isdigit(str[len]))
+		len++;
+	if ((len - zeros) > 11)
+		return (0);
+	return (1);
+}
+
+int	valid_input(char **av, int flag)
 {
 	int	i;
 
@@ -58,9 +65,9 @@ int	check_arg(char **av, int flag)
 	if (flag)
 		i++;
 	while (av[++i])
-		if (!is_number(av[i]))
-			return (1);
+		if (!is_number(av[i]) || !valid_len(av[i]))
+			return (0);
 	if (have_duplicates(av, flag))
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
