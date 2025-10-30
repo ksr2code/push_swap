@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: atvii <atvii@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:29 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/10/27 14:36:37 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/10/30 23:39:53 by atvii            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,24 @@ static int	check_flags(char *av)
 	return (0);
 }
 
+static void	complexity_checker(t_stack **stack_a, t_stack **stack_b, int s_size, int flag)
+{
+	if (flag == 1)
+		bubble_sort(stack_a, s_size);
+	// else if (flag == 2)
+	// 	// chank_sort(stack_a, stack_b, s_size);
+	else if ((flag == 3))
+		radix_sort(stack_a, stack_b, s_size);
+	// else if (flag == 4)
+	// 	disorder_checker(stack_a);
+}
+
 void	push_swap(t_stack **stack_a, t_stack **stack_b, int s_size, int flag)
 {
-	(void)flag;
 	if (is_sorted(*stack_a))
 		exit_error(NULL, NULL);
-	radix_sort(stack_a, stack_b, s_size);
+	complexity_checker(stack_a, stack_b, s_size, flag);
+	// radix_sort(stack_a, stack_b, s_size);
 }
 
 int	main(int ac, char **av)

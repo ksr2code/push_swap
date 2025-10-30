@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: atvii <atvii@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/10/27 14:35:37 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/10/30 23:38:35 by atvii            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b);
 void	free_stack(t_stack **stack);
 int		is_sorted(t_stack *stack);
 long	ft_atol(const char *str);
-
+// int		disorder_checker(t_stack **stack_a);
 int		ft_stack_size(t_stack *stack);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
+void	bubble_sort(t_stack **stack_a, int s_size);
 
 void	do_sa(t_stack **stack_a);
 void	do_sb(t_stack **stack_b);

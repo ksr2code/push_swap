@@ -10,6 +10,7 @@ SRCS = main.c\
 	   op_rotate.c\
 	   op_swap.c\
 	   sort.c\
+	   bubblesort.c\
 	   stack.c\
 	   stack_utils.c\
 	   utils.c
@@ -25,13 +26,13 @@ all: $(NAME)
 bonus: all
 
 $(NAME): $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR)	
+	$(MAKE) -C $(LIBFT_DIR)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean: 
+clean:
 	rm -f $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)	clean
 
@@ -40,5 +41,5 @@ fclean: clean
 	rm -f $(LIBFT)
 
 re: fclean all
-	
+
 .PHONY: all bonus clean fclean re
