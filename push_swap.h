@@ -37,7 +37,7 @@ int		ft_stack_size(t_stack *stack);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
-void	bubble_sort(t_stack **stack_a, int s_size);
+void	bubble_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
 
 void	do_sa(t_stack **stack_a);
 void	do_sb(t_stack **stack_b);

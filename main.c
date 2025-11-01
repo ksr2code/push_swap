@@ -38,10 +38,10 @@ static int	check_flags(char *av)
 static void	complexity_checker(t_stack **stack_a, t_stack **stack_b, int s_size, int flag)
 {
 	if (flag == 1)
-		bubble_sort(stack_a, s_size);
+		bubble_sort(stack_a, stack_b, s_size);
 	// else if (flag == 2)
 	// 	// chank_sort(stack_a, stack_b, s_size);
-	else if ((flag == 3))
+	else if (flag == 3)
 		radix_sort(stack_a, stack_b, s_size);
 	// else if (flag == 4)
 	// 	disorder_checker(stack_a);
