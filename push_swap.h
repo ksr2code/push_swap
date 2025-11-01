@@ -36,7 +36,9 @@ long	ft_atol(const char *str);
 int		ft_stack_size(t_stack *stack);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 
+void	bubble_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
+void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
 
 void	do_sa(t_stack **stack_a);
 void	do_sb(t_stack **stack_b);

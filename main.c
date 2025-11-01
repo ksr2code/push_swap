@@ -6,7 +6,7 @@
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:29 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/10/27 14:36:37 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/01 13:22:01 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,46 @@ static int	check_flags(char *av)
 	return (0);
 }
 
+float	compute_disorder(t_stack *stack)
+{
+	int		mistakes;
+	int		total_pairs;
+	t_stack	*ptr;
+
+	mistakes = 0;
+	total_pairs = 0;
+	while (stack && stack->next)
+	{
+		ptr = stack->next;
+		while (ptr)
+		{
+			total_pairs++;
+			if (stack->index > ptr->index)
+				mistakes++;
+			ptr = ptr->next;
+		}
+		stack = stack->next;
+	}
+	if (!total_pairs)
+		return (0.0f);
+	return ((float)mistakes / (float)total_pairs);
+}
+
 void	push_swap(t_stack **stack_a, t_stack **stack_b, int s_size, int flag)
 {
-	(void)flag;
+	float	disorder;
+
+	disorder = compute_disorder(*stack_a);
 	if (is_sorted(*stack_a))
 		exit_error(NULL, NULL);
-	radix_sort(stack_a, stack_b, s_size);
+	else if (flag == 1)
+		bubble_sort(stack_a, stack_b, s_size);
+	else if (flag == 2)
+		radix_sort(stack_a, stack_b, s_size);
+	else if (flag == 3)
+		chunk_sort(stack_a, stack_b, s_size);
+	else
+		chunk_sort(stack_a, stack_b, s_size);
 }
 
 int	main(int ac, char **av)

@@ -9,7 +9,9 @@ SRCS = main.c\
 	   op_rev_rotate.c\
 	   op_rotate.c\
 	   op_swap.c\
-	   sort.c\
+	   bubble_sort.c\
+	   radix_sort.c\
+	   chunk_sort.c\
 	   stack.c\
 	   stack_utils.c\
 	   utils.c
