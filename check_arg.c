@@ -6,13 +6,13 @@
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:14:34 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 13:16:48 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/02 14:49:21 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_number(char *av)
+static int	is_number(char *av)
 {
 	int	i;
 
@@ -26,13 +26,15 @@ int	is_number(char *av)
 	return (1);
 }
 
-int	have_duplicates(char **av, int flag)
+static int	have_duplicates(char **av, t_flag flag)
 {
 	int	i;
 	int	j;
 
 	i = 1;
-	if (flag)
+	if (flag.type)
+		i++;
+	if (flag.bench)
 		i++;
 	while (av[i + 1])
 	{
@@ -48,7 +50,7 @@ int	have_duplicates(char **av, int flag)
 	return (0);
 }
 
-int	valid_len(char *str)
+static int	valid_len(char *str)
 {
 	int	len;
 	int	zeros;
@@ -69,12 +71,14 @@ int	valid_len(char *str)
 	return (1);
 }
 
-int	valid_input(char **av, int flag)
+int	valid_input(char **av, t_flag flag)
 {
 	int	i;
 
 	i = 0;
-	if (flag)
+	if (flag.type)
+		i++;
+	if (flag.bench)
 		i++;
 	while (av[++i])
 		if (!is_number(av[i]) || !valid_len(av[i]))

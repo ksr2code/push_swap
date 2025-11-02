@@ -23,7 +23,6 @@ all: $(NAME)
 bonus: all
 
 $(NAME): $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR)	
 	cp $(LIBFT) $(NAME)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)

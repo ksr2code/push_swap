@@ -6,7 +6,7 @@
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 20:50:04 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/10/30 20:50:05 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/02 14:50:48 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,16 @@ void	set_index(t_stack *stack_a, int s_size)
 	}
 }
 
-t_stack	*get_stack_values(char **av, int flag)
+t_stack	*get_stack_values(char **av, t_flag flag)
 {
 	int		i;
 	long	nb;
 	t_stack	*stack_a;
 
 	i = 1;
-	if (flag)
+	if (flag.type)
+		i++;
+	if (flag.bench)
 		i++;
 	stack_a = NULL;
 	while (av[i])

@@ -3,12 +3,13 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 NAME = push_swap
 
-SRCS = main.c\
+SRCS = push_swap.c\
 	   check_arg.c\
 	   op_push.c\
 	   op_rev_rotate.c\
 	   op_rotate.c\
 	   op_swap.c\
+	   parse_flags.c\
 	   bubble_sort.c\
 	   radix_sort.c\
 	   chunk_sort.c\
@@ -19,8 +20,10 @@ SRCS = main.c\
 
 OBJS = $(SRCS:.c=.o)
 
-LIBFT_DIR = ../libft
+LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
+FTPRINTF_DIR = ./ft_printf
+FTPRINTF = $(FTPRINTF_DIR)/libftprintf.a
 
 all: $(NAME)
 
@@ -28,7 +31,8 @@ bonus: all
 
 $(NAME): $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)	
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+	$(MAKE) -C $(FTPRINTF_DIR)	
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(FTPRINTF)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -36,11 +40,13 @@ $(NAME): $(OBJS)
 clean: 
 	rm -f $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)	clean
+	$(MAKE) -C $(FTPRINTF_DIR)	clean
 
 fclean: clean
 	rm -f $(NAME)
 	rm -f $(LIBFT)
+	rm -f $(FTPRINTF)
 
-re: fclean all
+re: fclean all clean
 	
 .PHONY: all bonus clean fclean re

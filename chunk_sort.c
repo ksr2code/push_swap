@@ -6,7 +6,7 @@
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:14:07 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 13:14:28 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/02 15:33:17 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,13 @@ static int	count_r(t_stack *stack, int s_size)
 	return (count);
 }
 
-void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size)
+void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
+		t_flag flag)
 {
 	int	r_count;
 	int	rr_count;
 
+	(void)flag;
 	make_chunks(stack_a, stack_b, s_size);
 	while (s_size - 1 >= 0)
 	{

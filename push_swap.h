@@ -6,7 +6,7 @@
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 13:15:15 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/02 15:12:03 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,28 @@ typedef struct s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-int		valid_input(char **av, int flag);
-t_stack	*get_stack_values(char **av, int flag);
+typedef struct s_flag
+{
+	int		type;
+	int		bench;
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+	float	disorder;
+}		t_flag;
+
+int		valid_input(char **av, t_flag flag);
+float	compute_disorder(t_stack *stack);
+void	check_flags(char **av, t_flag *flag);
+t_stack	*get_stack_values(char **av, t_flag flag);
 void	set_index(t_stack *stack_a, int s_size);
 void	exit_error(t_stack **stack_a, t_stack **stack_b);
 void	free_stack(t_stack **stack);
@@ -36,10 +56,15 @@ long	ft_atol(const char *str);
 int		ft_stack_size(t_stack *stack);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 
-void	bubble_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
-void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
-void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size);
+//============== sort ==================
+void	bubble_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
+			t_flag flag);
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
+			t_flag flag);
+void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
+			t_flag flag);
 
+//=========== operations ==============
 void	do_sa(t_stack **stack_a);
 void	do_sb(t_stack **stack_b);
 void	do_pa(t_stack **stack_a, t_stack **stack_b);
