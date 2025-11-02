@@ -12,6 +12,42 @@
 
 #include "push_swap.h"
 
+long	ft_atol(const char *str)
+{
+	long	res;
+	long	neg;
+
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	neg = 1;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			neg = -1;
+		str++;
+	}
+	res = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+	}
+	return (res * neg);
+}
+
+t_stack	*stack_new(int nb)
+{
+	t_stack	*new;
+
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->value = nb;
+	new->index = 0;
+	new->next = NULL;
+	return (new);
+}
+
 int	ft_stack_size(t_stack *stack)
 {
 	int	i;

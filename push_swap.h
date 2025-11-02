@@ -45,7 +45,7 @@ typedef struct s_flag
 
 //============== parse ================= 
 float	compute_disorder(t_stack *stack);
-void	check_flags(char **av, t_flag *flag);
+void	parse_flags(char **av, t_flag *flag);
 int		valid_input(char **av, t_flag flag);
 
 //============== utils ================= 
@@ -58,6 +58,7 @@ void	print_bench(t_flag flag);
 t_stack	*get_stack_values(char **av, t_flag flag);
 void	set_index(t_stack *stack_a, int s_size);
 long	ft_atol(const char *str);
+t_stack	*stack_new(int nb);
 int		ft_stack_size(t_stack *stack);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 

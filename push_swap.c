@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	check_flags(av, &flag);
+	parse_flags(av, &flag);
 	if (!valid_input(av, flag))
 		exit_error(NULL, NULL);
 	stack_b = NULL;

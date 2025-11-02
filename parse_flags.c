@@ -55,7 +55,7 @@ static void	init_flags(t_flag *flag)
 	flag->disorder = 0.0f;
 }
 
-void	check_flags(char **av, t_flag *flag)
+void	parse_flags(char **av, t_flag *flag)
 {
 	int	i;
 

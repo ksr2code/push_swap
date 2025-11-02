@@ -4,18 +4,18 @@ CFLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap
 
 SRCS = push_swap.c\
-	   check_arg.c\
+	   push_swap_utils.c\
 	   op_push.c\
 	   op_rev_rotate.c\
 	   op_rotate.c\
 	   op_swap.c\
+	   parse_args.c\
 	   parse_flags.c\
-	   bubble_sort.c\
-	   radix_sort.c\
-	   chunk_sort.c\
+	   sort_bubble.c\
+	   sort_radix.c\
+	   sort_chunk.c\
 	   stack.c\
-	   stack_utils.c\
-	   utils.c
+	   stack_utils.c
 
 
 OBJS = $(SRCS:.c=.o)
