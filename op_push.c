@@ -24,14 +24,18 @@ static void	push(t_stack **src, t_stack **dest)
 	*src = tmp;
 }
 
-void	do_pa(t_stack **stack_a, t_stack **stack_b)
+void	do_pa(t_stack **stack_a, t_stack **stack_b, t_flag *flag)
 {
 	push(stack_b, stack_a);
-	ft_putstr_fd("pa\n", 1);
+	if (!flag->bench)
+		ft_putstr_fd("pa\n", 1);
+	flag->pa++;
 }
 
-void	do_pb(t_stack **stack_a, t_stack **stack_b)
+void	do_pb(t_stack **stack_a, t_stack **stack_b, t_flag *flag)
 {
 	push(stack_a, stack_b);
-	ft_putstr_fd("pb\n", 1);
+	if (!flag->bench)
+		ft_putstr_fd("pb\n", 1);
+	flag->pb++;
 }

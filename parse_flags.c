@@ -52,6 +52,7 @@ static void	init_flags(t_flag *flag)
 	flag->rra = 0;
 	flag->rrb = 0;
 	flag->rrr = 0;
+	flag->disorder = 0.0f;
 }
 
 void	check_flags(char **av, t_flag *flag)

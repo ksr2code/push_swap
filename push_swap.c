@@ -12,18 +12,19 @@
 
 #include "push_swap.h"
 
-void	push_swap(t_stack **stack_a, t_stack **stack_b, int s_size, t_flag flag)
+static void	push_swap(t_stack **stack_a, t_stack **stack_b, int s_size,
+		t_flag *flag)
 {
-	flag.disorder = compute_disorder(*stack_a);
+	flag->disorder = compute_disorder(*stack_a);
 	if (is_sorted(*stack_a))
 		exit_error(stack_a, stack_b);
-	else if (flag.type == 1)
+	else if (flag->type == 1)
 		bubble_sort(stack_a, stack_b, s_size, flag);
-	else if (flag.type == 2)
+	else if (flag->type == 2)
 		radix_sort(stack_a, stack_b, s_size, flag);
-	else if (flag.type == 3)
+	else if (flag->type == 3)
 		chunk_sort(stack_a, stack_b, s_size, flag);
-	else if (flag.type == 4)
+	else if (flag->type == 4)
 		chunk_sort(stack_a, stack_b, s_size, flag);
 	else
 		chunk_sort(stack_a, stack_b, s_size, flag);
@@ -45,7 +46,9 @@ int	main(int ac, char **av)
 	stack_a = get_stack_values(av, flag);
 	s_size = ft_stack_size(stack_a);
 	set_index(stack_a, s_size);
-	push_swap(&stack_a, &stack_b, s_size, flag);
+	push_swap(&stack_a, &stack_b, s_size, &flag);
+	if (flag.bench)
+		print_bench(flag);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

@@ -47,6 +47,10 @@ fclean: clean
 	rm -f $(LIBFT)
 	rm -f $(FTPRINTF)
 
-re: fclean all clean
+# re: fclean all 
+re:
+	@$(MAKE) fclean
+	@$(MAKE) all
+	@$(MAKE) clean
 	
 .PHONY: all bonus clean fclean re

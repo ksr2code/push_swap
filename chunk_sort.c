@@ -39,7 +39,8 @@ static int	ft_sqrt(int nb)
 // 	return (s_chunk);
 // }
 
-static void	make_chunks(t_stack **stack_a, t_stack **stack_b, int s_size)
+static void	make_chunks(t_stack **stack_a, t_stack **stack_b, int s_size,
+		t_flag *flag)
 {
 	int	i;
 	int	s_chunk;
@@ -50,17 +51,17 @@ static void	make_chunks(t_stack **stack_a, t_stack **stack_b, int s_size)
 	{
 		if ((*stack_a)->index <= i)
 		{
-			do_pb(stack_a, stack_b);
-			do_rb(stack_b);
+			do_pb(stack_a, stack_b, flag);
+			do_rb(stack_b, flag);
 			i++;
 		}
 		else if ((*stack_a)->index <= i + s_chunk)
 		{
-			do_pb(stack_a, stack_b);
+			do_pb(stack_a, stack_b, flag);
 			i++;
 		}
 		else
-			do_ra(stack_a);
+			do_ra(stack_a, flag);
 	}
 }
 
@@ -78,13 +79,12 @@ static int	count_r(t_stack *stack, int s_size)
 }
 
 void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-		t_flag flag)
+		t_flag *flag)
 {
 	int	r_count;
 	int	rr_count;
 
-	(void)flag;
-	make_chunks(stack_a, stack_b, s_size);
+	make_chunks(stack_a, stack_b, s_size, flag);
 	while (s_size - 1 >= 0)
 	{
 		r_count = count_r(*stack_b, s_size);
@@ -92,15 +92,15 @@ void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
 		if (r_count <= rr_count)
 		{
 			while ((*stack_b)->index != s_size - 1)
-				do_rb(stack_b);
-			do_pa(stack_a, stack_b);
+				do_rb(stack_b, flag);
+			do_pa(stack_a, stack_b, flag);
 			s_size--;
 		}
 		else
 		{
 			while ((*stack_b)->index != s_size - 1)
-				do_rrb(stack_b);
-			do_pa(stack_a, stack_b);
+				do_rrb(stack_b, flag);
+			do_pa(stack_a, stack_b, flag);
 			s_size--;
 		}
 	}

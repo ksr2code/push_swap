@@ -47,3 +47,28 @@ int	is_sorted(t_stack *stack)
 	}
 	return (1);
 }
+
+void	print_bench(t_flag flag)
+{
+	ft_printf("[bench] disorder: %i.%i%%\n", (int)(flag.disorder * 100),
+		(int)((flag.disorder - (int)flag.disorder) * 100));
+	if (flag.type == 1)
+		ft_printf("[bench] strategy: Simple / O(n²)\n");
+	else if (flag.type == 2)
+		ft_printf("[bench] strategy: Medium / O(n√n)\n");
+	else if (flag.type == 3)
+		ft_printf("[bench] strategy: Complex / O(nlogn)\n");
+	else if (flag.disorder < 0.2)
+		ft_printf("[bench] strategy: Adaptive / O(n)\n");
+	else if (flag.disorder >= 0.2 && flag.disorder < 0.5)
+		ft_printf("[bench] strategy: Adaptive / O(n√n)\n");
+	else if (flag.disorder >= 0.5)
+		ft_printf("[bench] strategy: Adaptive / O(nlogn)\n");
+	ft_printf("[bench] total_ops: %i\n", (flag.sb + flag.sa + flag.ss + flag.pa
+			+ flag.pb + flag.ra + flag.rb + flag.rr + flag.rra + flag.rrb
+			+ flag.rrr));
+	ft_printf("[bench] sa: %i sb: %i ss: %i pa: %i pb:% i\n", flag.sa, flag.sb,
+		flag.ss, flag.pa, flag.pb);
+	ft_printf("[bench] ra: %i rb: %i rr: %i rra: %i rrb:% i rrr: %i\n", flag.ra,
+		flag.rb, flag.rr, flag.rra, flag.rrb, flag.rrr);
+}

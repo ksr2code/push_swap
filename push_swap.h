@@ -43,37 +43,42 @@ typedef struct s_flag
 	float	disorder;
 }		t_flag;
 
-int		valid_input(char **av, t_flag flag);
+//============== parse ================= 
 float	compute_disorder(t_stack *stack);
 void	check_flags(char **av, t_flag *flag);
-t_stack	*get_stack_values(char **av, t_flag flag);
-void	set_index(t_stack *stack_a, int s_size);
+int		valid_input(char **av, t_flag flag);
+
+//============== utils ================= 
 void	exit_error(t_stack **stack_a, t_stack **stack_b);
 void	free_stack(t_stack **stack);
 int		is_sorted(t_stack *stack);
-long	ft_atol(const char *str);
+void	print_bench(t_flag flag);
 
+//============== stack ================= 
+t_stack	*get_stack_values(char **av, t_flag flag);
+void	set_index(t_stack *stack_a, int s_size);
+long	ft_atol(const char *str);
 int		ft_stack_size(t_stack *stack);
 void	ft_stackadd_back(t_stack **stack, t_stack *new);
 
 //============== sort ==================
 void	bubble_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-			t_flag flag);
+			t_flag *flag);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-			t_flag flag);
+			t_flag *flag);
 void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-			t_flag flag);
+			t_flag *flag);
 
 //=========== operations ==============
-void	do_sa(t_stack **stack_a);
-void	do_sb(t_stack **stack_b);
-void	do_pa(t_stack **stack_a, t_stack **stack_b);
-void	do_pb(t_stack **stack_a, t_stack **stack_b);
-void	do_ra(t_stack **stack_a);
-void	do_rb(t_stack **stack_b);
-void	do_rr(t_stack **stack_a, t_stack **stack_b);
-void	do_rra(t_stack **stack_a);
-void	do_rrb(t_stack **stack_b);
-void	do_rrr(t_stack **stack_a, t_stack **stack_b);
+void	do_sa(t_stack **stack_a, t_flag *flag);
+void	do_sb(t_stack **stack_b, t_flag *flag);
+void	do_pa(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
+void	do_pb(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
+void	do_ra(t_stack **stack_a, t_flag *flag);
+void	do_rb(t_stack **stack_b, t_flag *flag);
+void	do_rr(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
+void	do_rra(t_stack **stack_a, t_flag *flag);
+void	do_rrb(t_stack **stack_b, t_flag *flag);
+void	do_rrr(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
 
 #endif

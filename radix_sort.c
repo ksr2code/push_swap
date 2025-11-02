@@ -23,13 +23,12 @@ static int	highest_bit(int n)
 }
 
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-		t_flag flag)
+		t_flag *flag)
 {
 	int	max_bits;
 	int	i;
 	int	j;
 
-	(void)flag;
 	max_bits = highest_bit(s_size - 1);
 	i = 0;
 	while (i < max_bits)
@@ -38,13 +37,13 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
 		while (j < s_size)
 		{
 			if (((*stack_a)->index >> i) & 1)
-				do_ra(stack_a);
+				do_ra(stack_a, flag);
 			else
-				do_pb(stack_a, stack_b);
+				do_pb(stack_a, stack_b, flag);
 			j++;
 		}
 		while (*stack_b)
-			do_pa(stack_a, stack_b);
+			do_pa(stack_a, stack_b, flag);
 		i++;
 	}
 }
