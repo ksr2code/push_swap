@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   chunk_sort.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/02 13:14:07 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/11/02 13:14:28 by ksmailov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	ft_sqrt(int nb)
@@ -33,7 +45,6 @@ static void	make_chunks(t_stack **stack_a, t_stack **stack_b, int s_size)
 	int	s_chunk;
 
 	i = 0;
-	// s_chunk = calc_chunk(s_size);
 	s_chunk = ft_sqrt(s_size) * 14 / 10;
 	while (*stack_a)
 	{

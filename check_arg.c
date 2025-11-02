@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_arg.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/02 13:14:34 by ksmailov          #+#    #+#             */
+/*   Updated: 2025/11/02 13:16:48 by ksmailov         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	is_number(char *av)
@@ -36,13 +48,13 @@ int	have_duplicates(char **av, int flag)
 	return (0);
 }
 
-int valid_len(char *str)
+int	valid_len(char *str)
 {
-	int len;
-	int zeros;
+	int	len;
+	int	zeros;
 
 	len = 0;
-	zeros =0;
+	zeros = 0;
 	if (str[len] == '-' || str[len] == '+')
 		len++;
 	while (str[len] && str[len] == '0')
