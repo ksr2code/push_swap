@@ -17,36 +17,64 @@ static int	is_number(char *av)
 	int	i;
 
 	i = 0;
-	if ((av[i] == '-' || av[i] == '+') && av[i + 1] != '\0')
-		i++;
-	while (av[i] && ft_isdigit(av[i]))
-		i++;
-	if (av[i] != '\0')
-		return (0);
+	while (av[i])
+	{
+		if ((av[i] == '-' || av[i] == '+') && av[i + 1] != '\0')
+			i++;
+		if (!ft_isdigit(av[i]))
+			return (0);
+		while (ft_isdigit(av[i]) || av[i] == ' ')
+			i++;
+		if (av[i] != '\0')
+			return (0);
+	}
 	return (1);
 }
 
+// static int	have_duplicates(char **av, t_flag flag)
+// {
+// 	int	i;
+// 	int	j;
+//
+// 	i = 1;
+// 	if (flag.type)
+// 		i++;
+// 	if (flag.bench)
+// 		i++;
+// 	while (av[i + 1])
+// 	{
+// 		j = i + 1;
+// 		while (av[j])
+// 		{
+// 			if (ft_atol(av[i]) == ft_atol(av[j]))
+// 				return (1);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	return (0);
+// }
+
 static int	have_duplicates(char **av, t_flag flag)
 {
-	int	i;
-	int	j;
+	t_stack	*head;
+	t_stack	*ptr1;
+	t_stack	*ptr2;
 
-	i = 1;
-	if (flag.type)
-		i++;
-	if (flag.bench)
-		i++;
-	while (av[i + 1])
+	head = get_stack_values(av, flag);
+	ptr1 = head;
+	while (ptr1 && ptr1->next)
 	{
-		j = i + 1;
-		while (av[j])
+		ptr2 = ptr1->next;
+		while (ptr2)
 		{
-			if (ft_atol(av[i]) == ft_atol(av[j]))
+			if (ptr1->value == ptr2->value)
 				return (1);
-			j++;
+			ptr2 = ptr2->next;
 		}
-		i++;
+		ptr1 = ptr1->next;
 	}
+	free_stack(&head);
 	return (0);
 }
 

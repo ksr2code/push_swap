@@ -41,7 +41,7 @@ void	do_rb(t_stack **stack_b, t_flag *flag)
 	rotate(stack_b);
 	if (!flag->bench)
 		ft_putstr_fd("rb\n", 1);
-	flag->ra++;
+	flag->rb++;
 }
 
 void	do_rr(t_stack **stack_a, t_stack **stack_b, t_flag *flag)

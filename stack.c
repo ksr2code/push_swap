@@ -41,12 +41,36 @@ void	set_index(t_stack *stack_a, int s_size)
 	}
 }
 
+static void	import_num(char *str, t_stack **stack_a)
+{
+	int		i;
+	t_stack	*tmp;
+	long	nb;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]))
+		{
+			nb = ft_atol(&str[i]);
+			if (nb > INT_MAX || nb < INT_MIN)
+				exit_error(stack_a, NULL);
+			tmp = stack_new((int)nb);
+			if (!tmp)
+				exit_error(stack_a, NULL);
+			ft_stackadd_back(stack_a, tmp);
+			while (ft_isdigit(str[i]))
+				i++;
+		}
+		else
+			i++;
+	}
+}
+
 t_stack	*get_stack_values(char **av, t_flag flag)
 {
 	int		i;
-	long	nb;
 	t_stack	*stack_a;
-	t_stack *tmp;
 
 	i = 1;
 	if (flag.type)
@@ -56,13 +80,7 @@ t_stack	*get_stack_values(char **av, t_flag flag)
 	stack_a = NULL;
 	while (av[i])
 	{
-		nb = ft_atol(av[i]);
-		if (nb > INT_MAX || nb < INT_MIN)
-			exit_error(&stack_a, NULL);
-		tmp = stack_new((int)nb);
-		if (!tmp)
-			exit_error(&stack_a, NULL);
-		ft_stackadd_back(&stack_a, tmp);
+		import_num(av[i], &stack_a);
 		i++;
 	}
 	return (stack_a);
