@@ -31,30 +31,6 @@ static int	is_number(char *av)
 	return (1);
 }
 
-// static int	have_duplicates(char **av, t_flag flag)
-// {
-// 	int	i;
-// 	int	j;
-//
-// 	i = 1;
-// 	if (flag.type)
-// 		i++;
-// 	if (flag.bench)
-// 		i++;
-// 	while (av[i + 1])
-// 	{
-// 		j = i + 1;
-// 		while (av[j])
-// 		{
-// 			if (ft_atol(av[i]) == ft_atol(av[j]))
-// 				return (1);
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	return (0);
-// }
-
 static int	have_duplicates(char **av, t_flag flag)
 {
 	t_stack	*head;
