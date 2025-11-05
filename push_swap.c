@@ -6,7 +6,7 @@
 /*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:29 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/05 09:00:21 by mnestere         ###   ########.fr       */
+/*   Updated: 2025/11/05 19:00:05 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	stack_a = get_stack_values(av, flag);
 	s_size = ft_stack_size(stack_a);
-	if(!stack_a)
-		exit_error(NULL, NULL);
 	set_index(stack_a, s_size);
 	push_swap(&stack_a, &stack_b, s_size, &flag);
 	if (flag.bench)

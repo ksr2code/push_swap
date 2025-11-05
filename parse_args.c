@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_arg.c                                        :+:      :+:    :+:   */
+/*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:14:34 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 14:49:21 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/05 18:59:56 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static int	have_duplicates(char **av, t_flag flag)
 	t_stack	*ptr2;
 
 	head = get_stack_values(av, flag);
+	if (!ft_stack_size(head))
+		return (1);
 	ptr1 = head;
 	while (ptr1 && ptr1->next)
 	{
