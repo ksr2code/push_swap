@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:29 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 15:13:31 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/05 08:33:15 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	main(int ac, char **av)
 		exit_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = get_stack_values(av, flag);
+	if (!stack_a)
+		return (0);
 	s_size = ft_stack_size(stack_a);
 	set_index(stack_a, s_size);
 	push_swap(&stack_a, &stack_b, s_size, &flag);
