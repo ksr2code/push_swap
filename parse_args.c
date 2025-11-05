@@ -6,7 +6,7 @@
 /*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:14:34 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/05 21:35:58 by mnestere         ###   ########.fr       */
+/*   Updated: 2025/11/05 22:57:40 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	have_duplicates(char **av, t_flag flag)
 	t_stack	*ptr2;
 
 	head = get_stack_values(av, flag);
-	if (!ft_stack_size(head))
+	if (!head)
 		return (1);
 	ptr1 = head;
 	while (ptr1 && ptr1->next)
@@ -47,7 +47,10 @@ static int	have_duplicates(char **av, t_flag flag)
 		while (ptr2)
 		{
 			if (ptr1->value == ptr2->value)
+			{
+				free_stack(&head);
 				return (1);
+			}
 			ptr2 = ptr2->next;
 		}
 		ptr1 = ptr1->next;
