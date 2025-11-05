@@ -6,7 +6,7 @@
 /*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:16:11 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/05 21:33:02 by mnestere         ###   ########.fr       */
+/*   Updated: 2025/11/05 23:01:27 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 
 void	exit_sorted(t_stack **stack_a, t_stack **stack_b, t_flag *flag)
 {
-	if(flag && flag->bench)
+	if (flag && flag->bench)
 		print_bench(*flag);
 	if (stack_a && *stack_a)
 		free_stack(stack_a);
