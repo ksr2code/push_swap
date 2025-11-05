@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 15:12:03 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/05 21:25:19 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	parse_flags(char **av, t_flag *flag);
 int		valid_input(char **av, t_flag flag);
 
 //============== utils ================= 
+void	exit_sorted(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
 void	exit_error(t_stack **stack_a, t_stack **stack_b);
 void	free_stack(t_stack **stack);
 int		is_sorted(t_stack *stack);
