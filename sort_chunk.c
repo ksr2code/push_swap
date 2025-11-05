@@ -26,19 +26,6 @@ static int	ft_sqrt(int nb)
 	return ((int)i - 1);
 }
 
-// static int	calc_chunk(int s_size)
-// {
-// 	int	s_chunk;
-//
-// 	if (s_size <= 100)
-// 		s_chunk = s_size / 6;
-// 	else
-// 		s_chunk = ft_sqrt(s_size) * 125 / 100;
-// 	if (s_chunk < 3)
-// 		s_chunk = 3;
-// 	return (s_chunk);
-// }
-
 static void	make_chunks(t_stack **stack_a, t_stack **stack_b, int s_size,
 		t_flag *flag)
 {
@@ -52,7 +39,11 @@ static void	make_chunks(t_stack **stack_a, t_stack **stack_b, int s_size,
 		if ((*stack_a)->index <= i)
 		{
 			do_pb(stack_a, stack_b, flag);
-			do_rb(stack_b, flag);
+			if (*stack_a && ((*stack_a)->index <= i || (*stack_a)->index <= i
+					+ s_chunk))
+				do_rb(stack_b, flag);
+			else
+				do_rr(stack_a, stack_b, flag);
 			i++;
 		}
 		else if ((*stack_a)->index <= i + s_chunk)
