@@ -6,7 +6,7 @@
 /*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/05 21:25:19 by mnestere         ###   ########.fr       */
+/*   Updated: 2025/11/07 12:59:35 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
 void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
 			t_flag *flag);
 void	low_disorder_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-		t_flag *flag);
+			t_flag *flag);
 
 //=========== operations ==============
 void	do_sa(t_stack **stack_a, t_flag *flag);

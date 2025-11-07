@@ -6,7 +6,7 @@
 /*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 12:56:50 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/07 12:56:55 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/07 13:04:20 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int	main(int ac, char **av)
 		exit_error(NULL, NULL);
 	stack_b = NULL;
 	stack_a = get_stack_values(av, flag);
-	if (!stack_a)
-		return (0);
 	s_size = ft_stack_size(stack_a);
 	set_index(stack_a, s_size);
 	push_swap(&stack_a, &stack_b, s_size, &flag);
