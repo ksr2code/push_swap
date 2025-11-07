@@ -70,6 +70,8 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
 			t_flag *flag);
 void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
 			t_flag *flag);
+void	low_disorder_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
+		t_flag *flag);
 
 //=========== operations ==============
 void	do_sa(t_stack **stack_a, t_flag *flag);
