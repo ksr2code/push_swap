@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 14:53:03 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 15:09:07 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/05 23:01:18 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,31 @@ static void	init_flags(t_flag *flag)
 	flag->disorder = 0.0f;
 }
 
+static int	is_flag(char *arg, t_flag *flag)
+{
+	if (!arg || arg[0] != '-' || arg[1] != '-')
+		return (0);
+	if (ft_strcmp(arg, "--bench") == 0)
+		flag->bench = 1;
+	else if (ft_strcmp(arg, "--simple") == 0)
+		flag->type = 1;
+	else if (ft_strcmp(arg, "--medium") == 0)
+		flag->type = 2;
+	else if (ft_strcmp(arg, "--complex") == 0)
+		flag->type = 3;
+	else if (ft_strcmp(arg, "--adaptive") == 0)
+		flag->type = 4;
+	else
+		return (0);
+	return (1);
+}
+
 void	parse_flags(char **av, t_flag *flag)
 {
 	int	i;
 
 	i = 1;
 	init_flags(flag);
-	if (ft_strcmp(av[i], "--bench") == 0)
-	{
-		flag->bench = 1;
+	while (av && av[i] && is_flag(av[i], flag))
 		i++;
-	}
-	if (ft_strcmp(av[i], "--simple") == 0)
-		flag->type = 1;
-	else if (ft_strcmp(av[i], "--medium") == 0)
-		flag->type = 2;
-	else if (ft_strcmp(av[i], "--complex") == 0)
-		flag->type = 3;
-	else if (ft_strcmp(av[i], "--adaptive") == 0)
-		flag->type = 4;
 }

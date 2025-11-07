@@ -14,6 +14,7 @@ SRCS = push_swap.c\
 	   sort_bubble.c\
 	   sort_radix.c\
 	   sort_chunk.c\
+	   sort_low_dis.c\
 	   stack.c\
 	   stack_utils.c
 

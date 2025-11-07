@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:16:11 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 13:16:12 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/05 23:01:27 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,18 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 		free_stack(stack_a);
 	if (stack_b && *stack_b)
 		free_stack(stack_b);
-	write(2, "Error\n", 6);
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
+}
+
+void	exit_sorted(t_stack **stack_a, t_stack **stack_b, t_flag *flag)
+{
+	if (flag && flag->bench)
+		print_bench(*flag);
+	if (stack_a && *stack_a)
+		free_stack(stack_a);
+	if (stack_b && *stack_b)
+		free_stack(stack_b);
 	exit(1);
 }
 
