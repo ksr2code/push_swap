@@ -6,7 +6,7 @@
 /*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:29 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/05 21:40:12 by mnestere         ###   ########.fr       */
+/*   Updated: 2025/11/07 12:45:43 by ksmailov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int s_size,
 	if (is_sorted(*stack_a))
 		return ;
 	else if (flag->type == 1)
-		low_disorder_sort(stack_a, stack_b, s_size, flag);
+		bubble_sort(stack_a, stack_b, s_size, flag);
 	else if (flag->type == 2)
 		radix_sort(stack_a, stack_b, s_size, flag);
 	else if (flag->type == 3)
