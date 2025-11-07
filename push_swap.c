@@ -6,7 +6,7 @@
 /*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:29 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/05 19:00:05 by mnestere         ###   ########.fr       */
+/*   Updated: 2025/11/05 21:40:12 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int s_size,
 {
 	flag->disorder = compute_disorder(*stack_a);
 	if (is_sorted(*stack_a))
-		exit_error(stack_a, stack_b);
+		exit_sorted(stack_a, stack_b, flag);
 	else if (flag->type == 1)
 		bubble_sort(stack_a, stack_b, s_size, flag);
 	else if (flag->type == 2)
