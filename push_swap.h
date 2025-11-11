@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: annaviktorova <annaviktorova@student.42    +#+  +:+       +#+        */
+/*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/08 19:22:57 by annaviktoro      ###   ########.fr       */
+/*   Updated: 2025/11/11 15:55:31 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b);
 void	free_stack(t_stack **stack);
 int		is_sorted(t_stack *stack);
 void	print_bench(t_flag flag);
+int		is_number(char *av);
 
 //============== stack ================= 
 t_stack	*get_stack_values(char **av, t_flag flag);
