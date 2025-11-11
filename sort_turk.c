@@ -1,0 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_turk.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atvii <atvii@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/11 12:55:54 by mnestere          #+#    #+#             */
+/*   Updated: 2025/11/12 00:08:15 by atvii            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+static t_stack	*get_highest(t_stack **stack_a)
+{
+	int		highest;
+	t_stack	*highest_node;
+	t_stack	*cur;
+
+	if (!stack_a || !*stack_a)
+		return (NULL);
+	highest = INT_MIN;
+	highest_node = NULL;
+	cur = *stack_a;
+	while (cur)
+	{
+		if (cur->index > highest)
+		{
+			highest = cur->index;
+			highest_node = cur;
+		}
+		cur = cur->next;
+	}
+	return (highest_node);
+}
+
+void	sort_three(t_stack **stack_a, t_stack **stakc_b, int s_size,
+		t_flag *flag)
+{
+	t_stack	*highest;
+
+	highest = get_highest(stack_a);
+	if ((*stack_a)->index == highest->index)
+		do_ra(stack_a, flag);
+	else if ((*stack_a)->next->index == highest->index)
+		do_rra(stack_a, flag);
+	if ((*stack_a)->index > (*stack_a)->next->index)
+		do_sa(stack_a, flag);
+}
