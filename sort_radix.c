@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   radix_sort.c                                       :+:      :+:    :+:   */
+/*   sort_radix.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: atvii <atvii@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:15:29 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 15:33:40 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/13 00:33:24 by atvii            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Finds the highest set bit in an integer.
+ *
+ * @param n The integer to check.
+ * @return  The position of the highest set bit.
+ */
 static int	highest_bit(int n)
 {
 	int	bits;

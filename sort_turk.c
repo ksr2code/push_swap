@@ -6,12 +6,18 @@
 /*   By: atvii <atvii@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 12:55:54 by mnestere          #+#    #+#             */
-/*   Updated: 2025/11/12 00:08:15 by atvii            ###   ########.fr       */
+/*   Updated: 2025/11/13 00:33:32 by atvii            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Finds the node with the highest index in the stack.
+ *
+ * @param stack_a Pointer to the stack.
+ * @return        Pointer to the node with the highest index, or NULL if empty.
+ */
 static t_stack	*get_highest(t_stack **stack_a)
 {
 	int		highest;
@@ -38,7 +44,7 @@ static t_stack	*get_highest(t_stack **stack_a)
 void	sort_three(t_stack **stack_a, t_stack **stakc_b, int s_size,
 		t_flag *flag)
 {
-	t_stack	*highest;
+	t_stack *highest;
 
 	highest = get_highest(stack_a);
 	if ((*stack_a)->index == highest->index)

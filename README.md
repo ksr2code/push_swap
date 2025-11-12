@@ -67,7 +67,7 @@ This project has been created as part of the 42 curriculum by mnestere and ksmai
 * Led optimization and performance improvements across the project.
 * Provided key architectural decisions and advanced algorithmic strategies.
 
-### Matvii Me (mnestere)
+### Matvii Nesterenko (mnestere)
 * Developed the O(n²) sorting algorithm.
 * Implemented and debugged data parsing.
 * Participated in algorithm testing, analysis, and validation.
