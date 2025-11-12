@@ -1,7 +1,7 @@
-YELLOW = \\033[33m
-GREEN  = \\033[32m
-WHITE  = \\033[37m
-RESET  = \\033[0m
+YELLOW = \033[33m
+GREEN  = \033[32m
+WHITE  = \033[37m
+RESET  = \033[0m
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
