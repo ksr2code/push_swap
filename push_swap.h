@@ -65,35 +65,43 @@ void				ft_stackadd_back(t_stack **stack, t_stack *new);
 
 //============== sort ==================
 
-/// Bubble sort (O(n^2)).
-/// @param stack_a Main stack.
-/// @param stack_b Aux stack.
-/// @param s_size  Stack size.
-/// @param flag    Options/bench.
+/**
+ * @brief Bubble sort (O(n^2)).
+ * @param stack_a Main stack.
+ * @param stack_b Aux stack.
+ * @param s_size  Stack size.
+ * @param flag    Options/bench.
+ */
 void				bubble_sort(t_stack **stack_a, t_stack **stack_b,
 						int s_size, t_flag *flag);
 
-/// Radix sort (O(n√n) or O(n log n)).
-/// @param stack_a Main stack.
-/// @param stack_b Aux stack.
-/// @param s_size  Stack size.
-/// @param flag    Options/bench.
+/**
+ * @brief Radix sort (O(n√n) or O(n log n)).
+ * @param stack_a Main stack.
+ * @param stack_b Aux stack.
+ * @param s_size  Stack size.
+ * @param flag    Options/bench.
+ */
 void				radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
 						t_flag *flag);
 
-/// Chunk sort (O(n log n)).
-/// @param stack_a Main stack.
-/// @param stack_b Aux stack.
-/// @param s_size  Stack size.
-/// @param flag    Options/bench.
+/**
+ * @brief Chunk sort (O(n log n)).
+ * @param stack_a Main stack.
+ * @param stack_b Aux stack.
+ * @param s_size  Stack size.
+ * @param flag    Options/bench.
+ */
 void				chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
 						t_flag *flag);
 
-/// Low-disorder sort.
-/// @param stack_a Main stack.
-/// @param stack_b Aux stack.
-/// @param s_size  Stack size.
-/// @param flag    Options/bench.
+/**
+ * @brief Low-disorder sort.
+ * @param stack_a Main stack.
+ * @param stack_b Aux stack.
+ * @param s_size  Stack size.
+ * @param flag    Options/bench.
+ */
 void				low_disorder_sort(t_stack **stack_a, t_stack **stack_b,
 						int s_size, t_flag *flag);
 
