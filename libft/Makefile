@@ -54,21 +54,21 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $^
-	ranlib $(NAME)
+	@ar rc $(NAME) $^
+	@ranlib $(NAME)
 
 bonus: $(OBJS) $(OBJS_BONUS)
-	ar rc $(NAME) $^
-	ranlib $(NAME)
+	@ar rc $(NAME) $^
+	@ranlib $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	@rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

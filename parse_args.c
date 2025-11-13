@@ -6,13 +6,13 @@
 /*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:14:34 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/05 23:01:11 by mnestere         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:54:55 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_number(char *av)
+int	is_number(char *av)
 {
 	int	i;
 

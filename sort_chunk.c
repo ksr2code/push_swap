@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunk_sort.c                                       :+:      :+:    :+:   */
+/*   sort_chunk.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: atvii <atvii@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 13:14:07 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 15:33:17 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/13 00:33:03 by atvii            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/**
+ * @brief Computes the integer square root of a number.
+ *
+ * @param nb The number to compute the square root for.
+ * @return   The integer part of the square root of nb.
+ */
 static int	ft_sqrt(int nb)
 {
 	long	i;
@@ -26,6 +32,14 @@ static int	ft_sqrt(int nb)
 	return ((int)i - 1);
 }
 
+/**
+ * @brief Divides the stack into chunks and pushes them to stack_b.
+ *
+ * @param stack_a Pointer to the main stack.
+ * @param stack_b Pointer to the auxiliary stack.
+ * @param s_size  Number of elements in stack_a.
+ * @param flag    Pointer to the flag structure for options and benchmarking.
+ */
 static void	make_chunks(t_stack **stack_a, t_stack **stack_b, int s_size,
 		t_flag *flag)
 {
@@ -56,6 +70,13 @@ static void	make_chunks(t_stack **stack_a, t_stack **stack_b, int s_size,
 	}
 }
 
+/**
+ * @brief Counts the number of rotations needed to bring the max index to top.
+ *
+ * @param stack   Pointer to the stack.
+ * @param s_size  Number of elements in the stack.
+ * @return        The number of rotations required.
+ */
 static int	count_r(t_stack *stack, int s_size)
 {
 	int	count;

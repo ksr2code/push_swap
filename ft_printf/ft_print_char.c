@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/09 19:57:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/10/09 20:25:53 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/12 17:19:30 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_print_c(char c)
 {
-	write(1, &c, 1);
+	write(2, &c, 1);
 	return (1);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksmailov <ksmailov@student.42heilbronn.de  +#+  +:+       +#+        */
+/*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 20:50:04 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/02 14:50:48 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/11 15:48:58 by mnestere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	import_num(char *str, t_stack **stack_a)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]))
+		if (is_number(&str[i]))
 		{
 			nb = ft_atol(&str[i]);
 			if (nb > INT_MAX || nb < INT_MIN)
@@ -59,7 +59,7 @@ static void	import_num(char *str, t_stack **stack_a)
 			if (!tmp)
 				exit_error(stack_a, NULL);
 			ft_stackadd_back(stack_a, tmp);
-			while (ft_isdigit(str[i]))
+			while (is_number(&str[i]))
 				i++;
 		}
 		else

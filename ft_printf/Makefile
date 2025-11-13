@@ -23,20 +23,20 @@ all: $(NAME)
 bonus: all
 
 $(NAME): $(OBJS)
-	cp $(LIBFT) $(NAME)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@cp $(LIBFT) $(NAME)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean: 
-	rm -f $(OBJS)
-	$(MAKE) -C $(LIBFT_DIR)	clean
+	@rm -f $(OBJS)
+	@$(MAKE) -C $(LIBFT_DIR)	clean
 
 fclean: clean
-	rm -f $(NAME)
-	rm -f $(LIBFT)
+	@rm -f $(NAME)
+	@rm -f $(LIBFT)
 
 re: fclean all
 	

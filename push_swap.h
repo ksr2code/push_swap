@@ -3,86 +3,118 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mnestere <mnestere@student.42.fr>          +#+  +:+       +#+        */
+/*   By: atvii <atvii@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:34:21 by ksmailov          #+#    #+#             */
-/*   Updated: 2025/11/07 12:59:35 by ksmailov         ###   ########.fr       */
+/*   Updated: 2025/11/13 00:34:12 by atvii            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <unistd.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
 # include "./ft_printf/ft_printf.h"
+# include "./libft/libft.h"
 # include <limits.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
 	int				value;
 	int				index;
 	struct s_stack	*next;
-}				t_stack;
+}					t_stack;
 
 typedef struct s_flag
 {
-	int		type;
-	int		bench;
-	int		sa;
-	int		sb;
-	int		ss;
-	int		pa;
-	int		pb;
-	int		ra;
-	int		rb;
-	int		rr;
-	int		rra;
-	int		rrb;
-	int		rrr;
-	float	disorder;
-}		t_flag;
+	int				type;
+	int				bench;
+	int				sa;
+	int				sb;
+	int				ss;
+	int				pa;
+	int				pb;
+	int				ra;
+	int				rb;
+	int				rr;
+	int				rra;
+	int				rrb;
+	int				rrr;
+	float			disorder;
+}					t_flag;
 
-//============== parse ================= 
-float	compute_disorder(t_stack *stack);
-void	parse_flags(char **av, t_flag *flag);
-int		valid_input(char **av, t_flag flag);
+//============== parse =================
+float				compute_disorder(t_stack *stack);
+void				parse_flags(char **av, t_flag *flag);
+int					valid_input(char **av, t_flag flag);
 
-//============== utils ================= 
-void	exit_sorted(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
-void	exit_error(t_stack **stack_a, t_stack **stack_b);
-void	free_stack(t_stack **stack);
-int		is_sorted(t_stack *stack);
-void	print_bench(t_flag flag);
+//============== utils =================
+void				exit_error(t_stack **stack_a, t_stack **stack_b);
+void				free_stack(t_stack **stack);
+int					is_sorted(t_stack *stack);
+void				print_bench(t_flag flag);
+int					is_number(char *av);
 
-//============== stack ================= 
-t_stack	*get_stack_values(char **av, t_flag flag);
-void	set_index(t_stack *stack_a, int s_size);
-long	ft_atol(const char *str);
-t_stack	*stack_new(int nb);
-int		ft_stack_size(t_stack *stack);
-void	ft_stackadd_back(t_stack **stack, t_stack *new);
+//============== stack =================
+t_stack				*get_stack_values(char **av, t_flag flag);
+void				set_index(t_stack *stack_a, int s_size);
+long				ft_atol(const char *str);
+t_stack				*stack_new(int nb);
+int					ft_stack_size(t_stack *stack);
+void				ft_stackadd_back(t_stack **stack, t_stack *new);
 
 //============== sort ==================
-void	bubble_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-			t_flag *flag);
-void	radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-			t_flag *flag);
-void	chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-			t_flag *flag);
-void	low_disorder_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
-			t_flag *flag);
+
+/**
+ * @brief Bubble sort (O(n^2)).
+ * @param stack_a Main stack.
+ * @param stack_b Aux stack.
+ * @param s_size  Stack size.
+ * @param flag    Options/bench.
+ */
+void				bubble_sort(t_stack **stack_a, t_stack **stack_b,
+						int s_size, t_flag *flag);
+
+/**
+ * @brief Radix sort (O(n√n) or O(n log n)).
+ * @param stack_a Main stack.
+ * @param stack_b Aux stack.
+ * @param s_size  Stack size.
+ * @param flag    Options/bench.
+ */
+void				radix_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
+						t_flag *flag);
+
+/**
+ * @brief Chunk sort (O(n log n)).
+ * @param stack_a Main stack.
+ * @param stack_b Aux stack.
+ * @param s_size  Stack size.
+ * @param flag    Options/bench.
+ */
+void				chunk_sort(t_stack **stack_a, t_stack **stack_b, int s_size,
+						t_flag *flag);
+
+/**
+ * @brief Low-disorder sort.
+ * @param stack_a Main stack.
+ * @param stack_b Aux stack.
+ * @param s_size  Stack size.
+ * @param flag    Options/bench.
+ */
+void				low_disorder_sort(t_stack **stack_a, t_stack **stack_b,
+						int s_size, t_flag *flag);
 
 //=========== operations ==============
-void	do_sa(t_stack **stack_a, t_flag *flag);
-void	do_sb(t_stack **stack_b, t_flag *flag);
-void	do_pa(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
-void	do_pb(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
-void	do_ra(t_stack **stack_a, t_flag *flag);
-void	do_rb(t_stack **stack_b, t_flag *flag);
-void	do_rr(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
-void	do_rra(t_stack **stack_a, t_flag *flag);
-void	do_rrb(t_stack **stack_b, t_flag *flag);
-void	do_rrr(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
+void				do_sa(t_stack **stack_a, t_flag *flag);
+void				do_sb(t_stack **stack_b, t_flag *flag);
+void				do_pa(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
+void				do_pb(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
+void				do_ra(t_stack **stack_a, t_flag *flag);
+void				do_rb(t_stack **stack_b, t_flag *flag);
+void				do_rr(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
+void				do_rra(t_stack **stack_a, t_flag *flag);
+void				do_rrb(t_stack **stack_b, t_flag *flag);
+void				do_rrr(t_stack **stack_a, t_stack **stack_b, t_flag *flag);
 
 #endif
